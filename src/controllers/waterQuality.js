@@ -1,5 +1,6 @@
 import WaterQuality from '../models/ModelWaterQuality.js';
 
+// All
 export const getWaterQuality = async (req, res) => {
   try {
     const response = await WaterQuality.findAll();
@@ -10,6 +11,7 @@ export const getWaterQuality = async (req, res) => {
   }
 };
 
+// Admin
 export const createWaterQuality = async (req, res) => {
   const {
     river_name,
@@ -19,6 +21,8 @@ export const createWaterQuality = async (req, res) => {
     date,
     latitude,
     longitude,
+    upstream_description,
+    downstream_description,
   } = req.body;
 
   try {
@@ -30,6 +34,8 @@ export const createWaterQuality = async (req, res) => {
       date,
       latitude,
       longitude,
+      upstream_description,
+      downstream_description,
     });
 
     return res.status(200).json({ message: 'Berhasil Menambah Data Mutu Air' });

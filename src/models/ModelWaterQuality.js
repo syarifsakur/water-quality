@@ -52,6 +52,12 @@ const WaterQuality = db.define(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    upstream_description: {
+      type: DataTypes.STRING,
+    },
+    downstream_description: {
+      type: DataTypes.STRING,
+    },
   },
   {
     freezeTableName: true,

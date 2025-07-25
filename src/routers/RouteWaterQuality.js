@@ -10,6 +10,11 @@ import {
 const router = express.Router();
 
 router.get('/', getWaterQuality);
-router.post('/create', verifyToken, validateData(waterQualitySchema), createWaterQuality);
+router.post(
+  '/create',
+  verifyToken,
+  validateData(waterQualitySchema),
+  createWaterQuality
+);
 
 export default router;

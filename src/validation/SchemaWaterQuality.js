@@ -23,8 +23,14 @@ const waterQualitySchema = z.object({
     .refine((date) => !date || !isNaN(Date.parse(date)), {
       message: 'Format tanggal tidak valid',
     }),
-  latitude: z.number().optional(),
-  longitude: z.number().optional(),
+  latitude: z.string().min(1, 'latitude tidak boleh kosong!'),
+  longitude: z.string().min(1, 'longitude tidak boleh kosong!'),
+  upstream_description: z
+    .string()
+    .min(1, 'keterangan hulu sungai tidak boleh kosong!'),
+  downstream_description: z
+    .string()
+    .min(1, 'keterangan hilir sungai tidak boleh kosong!'),
 });
 
 export { waterQualitySchema };
